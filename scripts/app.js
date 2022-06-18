@@ -1,4 +1,33 @@
-'use strict';
+(function(){
+  'use strict';
+
+  var injectedForecast = {
+    key: 'newyork',
+    label : 'New York, NY',
+    currently : {
+      time : 1453489481,
+      summary: 'Clear',
+      icon:'partly-cloudy-day',
+      temperature: '52.74',
+      apparentTemperature: '74.34',
+      precipProbability: '0.20',
+      humidity:'0.77',
+      windBearing:'125',
+      windSpeed:'1.52'
+    },
+    daily : {
+      data: [
+        {icon: 'clear-day', temperatureHigh:55, temperatureLow:34},
+        {icon: 'rain', temperatureHigh:55, temperatureLow:34},
+        {icon: 'snow', temperatureHigh:55, temperatureLow:34},
+        {icon: 'sleet', temperatureHigh:55, temperatureLow:34},
+        {icon: 'fog', temperatureHigh:55, temperatureLow:34},
+        {icon: 'wind', temperatureHigh:55, temperatureLow:34},
+        {icon: 'partly-cloudy-day', temperatureHigh:55, temperatureLow:34},
+      ]
+    }
+  }
+})
 
 const weatherApp = {
   selectedLocations: {},
@@ -217,7 +246,31 @@ function loadLocationList() {
   if (!locations || Object.keys(locations).length === 0) {
     const key = '40.7720232,-73.9732319';
     locations = {};
-    locations[key] = {label: 'Jakarta', geo: '40.7720232,-73.9732319'};
+    locations[key] = {key: 'newyork',
+    label : 'New York, NY',
+    oneday : {
+      time : 1453489481,
+      summary: 'Clear',
+      icon:'partly-cloudy-day',
+      temperature: '52.74',
+      apparentTemperature: '74.34',
+      precipProbability: '0.20',
+      humidity:'0.77',
+      windBearing:'125',
+      windSpeed:'1.52'
+    },
+    future : {
+      data: [
+        {icon: 'clear-day', temperatureHigh:55, temperatureLow:34},
+        {icon: 'rain', temperatureHigh:55, temperatureLow:34},
+        {icon: 'snow', temperatureHigh:55, temperatureLow:34},
+        {icon: 'sleet', temperatureHigh:55, temperatureLow:34},
+        {icon: 'fog', temperatureHigh:55, temperatureLow:34},
+        {icon: 'wind', temperatureHigh:55, temperatureLow:34},
+        {icon: 'partly-cloudy-day', temperatureHigh:55, temperatureLow:34},
+      ]
+    }};
+    
   }
   return locations;
 }
@@ -239,5 +292,6 @@ function init() {
   document.getElementById('butDialogAdd')
       .addEventListener('click', addLocation);
 }
+
 
 init();
